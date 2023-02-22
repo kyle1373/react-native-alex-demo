@@ -1,6 +1,6 @@
 # Hey Alex :)
 
-Here is my React Native application based on the requirements you've specified in your email. All of my source code is in the `src` directory. I also added README documentation for all of the design philosophies I've put into place in case you're also curious about it. In addition, I put in inline comments if you're also curious.
+Here is my React Native application based on the requirements you've specified in your email. All of my source code is in the `src` directory. I also added README documentation for all of the design philosophies I've put into place in case you're also curious about it. I also put inline comments.
 
 # How to run the application
 
