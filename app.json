@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "react-native-alex-demo",
+    "slug": "react-native-alex-demo",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "react-native-alex-demo"
+}
