@@ -48,7 +48,7 @@ const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={{ flex: 1, justifyContent: "flex-end" }}>
-        <Text style={styles.title}>Login</Text>
+        <Text style={styles.title}>Home</Text>
       </View>
       <View
         style={{ marginHorizontal: 30, flex: 2, justifyContent: "flex-start" }}
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
     width: "100%",
     paddingHorizontal: 25,
     paddingVertical: 5,
-    marginTop: 10,
+    marginVertical: 10,
     justifyContent: "center"
   },
   loginText: {

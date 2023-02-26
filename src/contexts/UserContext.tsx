@@ -13,7 +13,8 @@ useEffect hook once the context is rendered.
 */
 import React, { useState, useEffect, createContext } from "react";
 import { Token, User } from "../constants/constants";
-import { getToken } from "../services/AuthService";
+import { getToken, login } from "../services/AuthService";
+import { displayError } from "../helpers/helpers";
 
 type UserContextType = {
   currentToken: Token;
@@ -35,9 +36,18 @@ export const UserProvider = ({ children }) => {
   useEffect(() => {
     getToken().then((token: Token) => {
       if (token.User) {
-        setCurrentToken(token);
+        login(token.User.Name, token.User.Email)
+          .then((updatedToken: Token) => {
+            setCurrentToken(updatedToken);
+            setIsUserContextLoaded(true);
+          })
+          .catch((error: Error) => {
+            displayError(error);
+            setIsUserContextLoaded(true);
+          });
+      } else {
+        setIsUserContextLoaded(true);
       }
-      setIsUserContextLoaded(true);
     });
   }, []);
 
