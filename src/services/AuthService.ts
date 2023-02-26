@@ -1,7 +1,9 @@
 /* 
 Services are files that contain functions which typically interact
 with a backend. In this case since we will not be interacting with
-any backend, this will simply mock as one.
+any backend, this will simply provide offline functionality, filled
+with functions that return a promise that would typically be
+representative of fetching and pulling data from an API.
 
 You typically divide services based on their functionality. In this
 case since we are dealing with authentication, this service is called
