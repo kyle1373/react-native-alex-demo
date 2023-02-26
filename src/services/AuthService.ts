@@ -1,7 +1,24 @@
+/* 
+Services are files that contain functions which typically interact
+with a backend. In this case since we will not be interacting with
+any backend, this will simply mock as one.
+
+You typically divide services based on their functionality. In this
+case since we are dealing with authentication, this service is called
+AuthService. It logs in, signs out, and even does storage management
+for authentication tokens.
+*/
+
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { STORAGE, Token, User } from "../constants/constants";
 import { formatError } from "../helpers/helpers";
 
+/* 
+login()
+
+This function attempts to log in a user. It returns a token based on the
+credentials.
+*/
 export async function login(name: string, email: string): Promise<Token> {
   // Dummy boolean if you ever wanted to check when a login fails
   const isFailure: boolean = false;
@@ -39,7 +56,12 @@ export async function login(name: string, email: string): Promise<Token> {
   return newToken
 }
 
+/* 
+logout()
 
+This function logs out the user by removing the token from
+the phone's storage
+*/
 export async function logout(): Promise<void> {
   // We delete the user token. Keep in mind that
   // logout() is a public function and deleteUserToken()
@@ -50,6 +72,11 @@ export async function logout(): Promise<void> {
   return Promise.resolve()
 }
 
+/* 
+getToken()
+
+This function gets the token from the user's device
+*/
 export async function getToken(): Promise<Token> {
 
   // Get the user from the async storage in the phone
@@ -72,18 +99,39 @@ export async function getToken(): Promise<Token> {
   return pulledToken;
 }
 
+/* 
+deleteUserToken()
+
+This function removes the stored user on the phone's token
+*/
 async function deleteUserToken(): Promise<void> {
   await AsyncStorage.removeItem(STORAGE.TokenUser);
 }
 
+/* 
+deleteUserToken()
+
+This function removes the stored logins on the phone's token
+*/
 async function deleteLoginsToken(): Promise<void> {
   await AsyncStorage.removeItem(STORAGE.TokenLogins);
 }
 
 /* 
-updateLoginToken()
+writeUserToken
+
+This function writes a new user to the phone's storage
+*/
+async function writeUserToken(user: User): Promise<User> {
+  await AsyncStorage.setItem(STORAGE.TokenUser, JSON.stringify(user));
+  return user;
+}
 
 
+/* 
+writeLoginsToken
+
+This function writes a new login session to the phone's storage
 */
 async function writeLoginsToken(date: Date): Promise<[Date]> {
   var pulledLogins: [Date] = JSON.parse(
@@ -97,10 +145,4 @@ async function writeLoginsToken(date: Date): Promise<[Date]> {
   await AsyncStorage.setItem(STORAGE.TokenLogins, JSON.stringify(pulledLogins));
 
   return pulledLogins;
-}
-
-async function writeUserToken(user: User): Promise<User> {
-  await AsyncStorage.setItem(STORAGE.TokenUser, JSON.stringify(user));
-
-  return user;
 }

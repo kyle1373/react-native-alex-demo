@@ -1,20 +1,17 @@
+/* 
+LoginScreen.tsx
+
+This file contains the login screen for the application
+*/
+
 import {
   SafeAreaView,
   StyleSheet,
-  Text,
   View,
-  TextInput,
-  TouchableOpacity,
-  Alert,
 } from "react-native";
-import React, { useContext, useState } from "react";
-import { COLORS, SIZES, Token } from "../../constants/constants";
+import React, { useState } from "react";
+import { COLORS, SIZES } from "../../constants/constants";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import { login } from "../../services/AuthService";
-import { displayError } from "../../helpers/helpers";
-import { UserContext } from "../../contexts/UserContext";
-import { ScreenContext } from "../../contexts/ScreenContext";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import TitleSection from "./components/TitleSection";
 import TextFieldsSection from "./components/TextFieldsSection";
 import LoginSection from "./components/LoginSection";

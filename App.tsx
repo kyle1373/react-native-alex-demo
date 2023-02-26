@@ -1,7 +1,7 @@
 /* 
 App.tsx's purpose is to render the Main component. If there are other 
 configurations we need (such as disabling font scaling), we can do 
-that here as well. For now though, nothing will need to be done.
+that in the Main component.
 
 I use typescript because it allows for typecasting in Javascript to
 catch some nasty runtime bugs that would be pretty hard to spot

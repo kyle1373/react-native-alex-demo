@@ -7,7 +7,7 @@ that are exposed to other components. currentToken contains the current
 user and the number of logins. setCurrentUser sets that token, which can
 be changed in other components for user login and logout. isUserContextLoaded
 is set to true when the system finished retrieving the token from the device.
-while false, ScreenContext will show a loading state, because we are still
+While false, ScreenContext will show a loading state, because we are still
 trying to get the token from the device. This is triggered by a one-time
 useEffect hook once the context is rendered.
 */
@@ -34,6 +34,12 @@ export const UserProvider = ({ children }) => {
     useState<boolean>(false);
 
   useEffect(() => {
+
+    // This runs at the start of the application.
+    // If a token exists in the async storage,
+    // it sets that token to the context variable.
+    // This, in turn, also updates the stack in
+    // AppNav.tsx. Go there for more info.
     getToken().then((token: Token) => {
       if (token.User) {
         login(token.User.Name, token.User.Email)

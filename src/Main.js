@@ -1,5 +1,6 @@
 /* 
-Main will wrap all of our context providers. More information about contexts is documented in the context
+Main will wrap all of our context providers. More information 
+about contexts is documented in the context folder.
 */
 
 import { StyleSheet, Text, TextInput } from "react-native";

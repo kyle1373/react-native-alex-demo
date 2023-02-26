@@ -47,6 +47,7 @@ const LoginSection = (props: LoginSectionProps) => {
         displayError(error);
       });
   };
+  
   return (
     <View>
       <TouchableOpacity onPress={onClickLogin} style={styles.buttonContainer}>

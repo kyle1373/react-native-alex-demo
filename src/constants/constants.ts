@@ -1,3 +1,9 @@
+/* 
+constants.ts
+
+This file contains constants and types useful in other parts of the app.
+*/
+
 import { Dimensions } from "react-native";
 
 export interface User {

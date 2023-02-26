@@ -2,7 +2,7 @@
 ScreenContext.tsx
 
 This file allows us to load the screen whenever we need to from other
-components. It also only loads the app when the user context is fully
+components. It also loads the app when the user context is fully
 loaded. See UserContext.tsx for more information.
 */
 

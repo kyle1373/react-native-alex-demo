@@ -1,3 +1,9 @@
+/* 
+HomeScreen.tsx
+
+This file contains the home screen for the application
+*/
+
 import { SafeAreaView, StyleSheet, View } from "react-native";
 import React from "react";
 import { COLORS } from "../../constants/constants";

@@ -1,8 +1,19 @@
+/* 
+AppNav.tsx
+
+Security in React Native is very important. You don't want
+a user to access parts of your app if they are not
+authenticated. That is why I implemented a two stack
+architecture for app navigation in this application. If a
+user has a valid token, they get access to the AppStack. If
+they do not have a valid token, they get access to the AuthStack.
+They physically cannot switch stacks unless the user's currentToken
+changes. A lot of applications do this, and it is best practice.*/
+
 import { StyleSheet, Text, View } from "react-native";
 import React, { useContext } from "react";
 import {
   NavigationContainer,
-  useNavigation,
 } from "@react-navigation/native";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { UserContext } from "../contexts/UserContext";
