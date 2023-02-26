@@ -1,3 +1,5 @@
+import { Dimensions } from "react-native";
+
 export interface User {
   Name: string;
   Email: string;
@@ -20,6 +22,12 @@ export const SCREENS = {
 
 export const COLORS = {
     background: "#DDDDDD",
-    button: "#063A75",
-    login: "#6082A8"
+    button: "#3d69ba",
+    login: "#A9D0F5"
 }
+
+export const SIZES = {
+  height: Dimensions.get('window').height,
+  width: Dimensions.get('window').width,
+}
+

@@ -3,9 +3,14 @@
     "name": "react-native-alex-demo",
     "slug": "react-native-alex-demo",
     "version": "1.0.0",
+    "orientation": "portrait",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "ios": {
+      "supportsTablet": false
+    }
+    
   },
   "name": "react-native-alex-demo"
 }

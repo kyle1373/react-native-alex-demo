@@ -76,6 +76,10 @@ async function deleteUserToken(): Promise<void> {
   await AsyncStorage.removeItem(STORAGE.TokenUser);
 }
 
+async function deleteLoginsToken(): Promise<void> {
+  await AsyncStorage.removeItem(STORAGE.TokenLogins);
+}
+
 /* 
 updateLoginToken()
 
