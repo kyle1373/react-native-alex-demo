@@ -6,6 +6,7 @@ import { StyleSheet, Text, TextInput } from "react-native";
 import React from "react";
 import { UserProvider } from "./contexts/UserContext";
 import { ScreenProvider } from "./contexts/ScreenContext";
+import AppNav from "./navigation/AppNav";
 
 const Main = () => {
   // Disable font scaling
@@ -16,7 +17,7 @@ const Main = () => {
   return (
     <UserProvider>
       <ScreenProvider>
-        <Text>Main</Text>
+        <AppNav/>
       </ScreenProvider>
     </UserProvider>
   );
