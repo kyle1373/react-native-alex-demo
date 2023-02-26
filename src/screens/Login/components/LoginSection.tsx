@@ -1,21 +1,25 @@
 import { Alert, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React, { useContext } from "react";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import { COLORS, Token } from "../../../constants/constants";
 import { ScreenContext } from "../../../contexts/ScreenContext";
 import { UserContext } from "../../../contexts/UserContext";
 import { displayError } from "../../../helpers/helpers";
-import { logout } from "../../../services/AuthService";
-import { COLORS } from "../../../constants/constants";
+import { login } from "../../../services/AuthService";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const LogoutSection = () => {
-  const { currentToken, setCurrentToken } = useContext(UserContext);
+type LoginSectionProps = {
+  name: string;
+  email: string;
+};
+const LoginSection = (props: LoginSectionProps) => {
+  const { setCurrentToken } = useContext(UserContext);
   const { setLoading } = useContext(ScreenContext);
+
   const onDeleteToken = async () => {
     setLoading(true);
     AsyncStorage.clear()
       .then(() => {
         setLoading(false);
-        setCurrentToken(undefined);
         Alert.alert("Success", "Cleared token from device");
       })
       .catch((error: Error) => {
@@ -24,12 +28,19 @@ const LogoutSection = () => {
       });
   };
 
-  const onClickLogout = () => {
+  const onClickLogin = () => {
+    // Input checks. We can do more here (such as regex
+    // expressions or external libraries). For now, we'll
+    // just have empty checks.
+    if (props.name === "" || props.email === "") {
+      Alert.alert("Input error", "Make sure all fields are visible");
+      return;
+    }
     setLoading(true);
-    logout()
-      .then(() => {
+    login(props.name, props.email)
+      .then((token: Token) => {
         setLoading(false);
-        setCurrentToken(undefined);
+        setCurrentToken(token);
       })
       .catch((error: Error) => {
         setLoading(false);
@@ -38,8 +49,8 @@ const LogoutSection = () => {
   };
   return (
     <View>
-      <TouchableOpacity onPress={onClickLogout} style={styles.buttonContainer}>
-        <Text style={styles.buttonText}>Logout</Text>
+      <TouchableOpacity onPress={onClickLogin} style={styles.buttonContainer}>
+        <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={onDeleteToken}>
         <Text style={styles.deleteTokenText}>
@@ -50,7 +61,7 @@ const LogoutSection = () => {
   );
 };
 
-export default LogoutSection;
+export default LoginSection;
 
 const styles = StyleSheet.create({
   buttonContainer: {

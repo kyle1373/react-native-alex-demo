@@ -4,7 +4,7 @@ import React from "react";
 const TitleSection = () => {
   return (
     <View>
-      <Text style={styles.title}>Home</Text>
+      <Text style={styles.title}>Login</Text>
     </View>
   );
 };
