@@ -9,8 +9,10 @@
     ],
     "ios": {
       "supportsTablet": false
+    },
+    "android": {
+      "package": "com.kyle1373.reactnativealexdemo"
     }
-    
   },
   "name": "react-native-alex-demo"
 }

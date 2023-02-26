@@ -1,4 +1,4 @@
-package com.reactnativealexdemo;
+package com.kyle1373.reactnativealexdemo;
 
 import android.os.Build;
 import android.os.Bundle;

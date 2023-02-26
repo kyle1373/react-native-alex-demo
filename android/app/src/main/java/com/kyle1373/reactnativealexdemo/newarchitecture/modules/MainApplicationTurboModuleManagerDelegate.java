@@ -1,4 +1,4 @@
-package com.reactnativealexdemo.newarchitecture.modules;
+package com.kyle1373.reactnativealexdemo.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;
